@@ -57,3 +57,7 @@ print("Number of top 100 influential users that are normal: " + str(normal))
 print("Average pagerank of a top 100 hateful user: " + str(avg_hateful / hateful))
 print("Average pagerank of a top 100 normal user: " + str(avg_normal / normal))
 
+# line graph
+# plot normal users by page rank
+# plot hateful users by page rank
+
