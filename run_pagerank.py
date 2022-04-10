@@ -19,7 +19,7 @@ fields = next(csvreader)
 # extract rows of users
 users = {}
 for row in csvreader:
-    users[row[0]] = row[1]
+  users[row[0]] = row[1]
 
 # parser = GraphMLParser()
 print("before read")
@@ -43,38 +43,38 @@ hateful_bar_graph = [0, 0, 0, 0]
 normal_bar_graph = [0, 0, 0, 0]
 
 for item in sorted_pr:
-    if users[item] == "other":
-        continue
-    else:
-        print(item, sorted_pr[item])
-        print(item, users[item])
-        if users[item] == "hateful":
-            hateful += 1
-            avg_hateful += count
-            hateful_ranks.append(count)
-            if (count / TOP_HOW_MANY) >= 0.75:
-                hateful_bar_graph[3] += 1
-            elif (count / TOP_HOW_MANY) >= 0.5:
-                hateful_bar_graph[2] += 1
-            elif (count / TOP_HOW_MANY) >= 0.25:
-                hateful_bar_graph[1] += 1
-            else:
-                hateful_bar_graph[0] += 1
-        elif users[item] == "normal":
-            normal += 1
-            avg_normal += count
-            normal_ranks.append(count)
-            if (count / TOP_HOW_MANY) >= 0.75:
-                normal_bar_graph[3] += 1
-            elif (count / TOP_HOW_MANY) >= 0.5:
-                normal_bar_graph[2] += 1
-            elif (count / TOP_HOW_MANY) >= 0.25:
-                normal_bar_graph[1] += 1
-            else:
-                normal_bar_graph[0] += 1
-        count += 1
+  if users[item] == "other":
+    continue
+  else:
+    print(item, sorted_pr[item])
+    print(item, users[item])
+    if users[item] == "hateful":
+      hateful += 1
+      avg_hateful += count
+      hateful_ranks.append(count)
+      if (count / TOP_HOW_MANY) >= 0.75:
+        hateful_bar_graph[3] += 1
+      elif (count / TOP_HOW_MANY) >= 0.5:
+        hateful_bar_graph[2] += 1
+      elif (count / TOP_HOW_MANY) >= 0.25:
+        hateful_bar_graph[1] += 1
+      else:
+        hateful_bar_graph[0] += 1
+    elif users[item] == "normal":
+      normal += 1
+      avg_normal += count
+      normal_ranks.append(count)
+      if (count / TOP_HOW_MANY) >= 0.75:
+        normal_bar_graph[3] += 1
+      elif (count / TOP_HOW_MANY) >= 0.5:
+        normal_bar_graph[2] += 1
+      elif (count / TOP_HOW_MANY) >= 0.25:
+        normal_bar_graph[1] += 1
+      else:
+        normal_bar_graph[0] += 1
+      count += 1
     if count == TOP_HOW_MANY:
-        break
+      break
 
 print("Number of top " + str(TOP_HOW_MANY) + " infuential users that are hateful: " + str(hateful))
 print("Number of top " + str(TOP_HOW_MANY) + " influential users that are normal: " + str(normal))
